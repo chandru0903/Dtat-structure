@@ -1,0 +1,63 @@
+#include <stdio.h>
+
+// Function to search for an element in the array
+int search(int arr[], int size, int key) {
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == key) {
+            return i; // Return the index where the element is found
+        }
+    }
+    return -1; // Return -1 if element is not found
+}
+
+// Function to insert an element into the array
+void insert(int arr[], int *size, int pos, int value) {
+    if (*size >= pos) {
+        for (int i = *size; i > pos; i--) {
+            arr[i] = arr[i - 1];
+        }
+        arr[pos] = value;
+        (*size)++;
+        printf("Element inserted successfully!\n");
+    } else {
+        printf("Invalid position for insertion!\n");
+    }
+}
+
+// Function to delete an element from the array
+void delete(int arr[], int *size, int pos) {
+    if (pos >= 0 && pos < *size) {
+        for (int i = pos; i < *size - 1; i++) {
+            arr[i] = arr[i + 1];
+        }
+        (*size)--;
+        printf("Element deleted successfully!\n");
+    } else {
+        printf("Invalid position for deletion!\n");
+    }
+}
+
+int main() {
+    int arr[100];
+    int size = 0;
+
+    // Insert elements
+    insert(arr, &size, 0, 10);
+    insert(arr, &size, 1, 20);
+    insert(arr, &size, 2, 30);
+
+    // Search for an element
+    int searchKey = 20;
+    int searchResult = search(arr, size, searchKey);
+    if (searchResult != -1) {
+        printf("Element %d found at index %d\n", searchKey, searchResult);
+    } else {
+        printf("Element %d not found\n", searchKey);
+    }
+
+    // Delete an element
+    int deletePos = 1;
+    delete(arr, &size, deletePos);
+
+    return 0;
+}
