@@ -1,14 +1,11 @@
-// Optimized implementation of Bubble sort
 #include <stdbool.h>
 #include <stdio.h>
-
 void swap(int* xp, int* yp)
 {
 	int temp = *xp;
 	*xp = *yp;
 	*yp = temp;
 }
-
 // An optimized version of Bubble Sort
 void bubbleSort(int arr[], int n)
 {
@@ -22,14 +19,12 @@ void bubbleSort(int arr[], int n)
 				swapped = true;
 			}
 		}
-
 		// If no two elements were swapped by inner loop,
 		// then break
 		if (swapped == false)
 			break;
 	}
 }
-
 // Function to print an array
 void printArray(int arr[], int size)
 {
@@ -37,7 +32,6 @@ void printArray(int arr[], int size)
 	for (i = 0; i < size; i++)
 		printf("%d ", arr[i]);
 }
-
 // Driver program to test above functions
 int main()
 {
